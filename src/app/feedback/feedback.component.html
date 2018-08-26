@@ -1,0 +1,24 @@
+<div class="feedback-form">
+  <form [formGroup]='feedbackForm'>
+    <div class="row" [ngClass]="{'error': feedbackForm.get('name').touched && feedbackForm.get('name').invalid}">
+      <label>Name</label><input formControlName="name">
+      <small *ngIf="feedbackForm.get('name').touched && feedbackForm.get('name').errors">Name is required!</small>
+    </div>
+    <div class="row" [ngClass]="{'error': feedbackForm.get('email').touched && feedbackForm.get('email').invalid}">
+      <label>Email address</label><input formControlName="email">
+      <small *ngIf="feedbackForm.get('email').touched && feedbackForm.get('email').errors">Mail is required!</small>
+
+    </div>
+    <div class="row"
+    [ngClass]="{'error': feedbackForm.get('telephone').touched && feedbackForm.get('telephone').invalid}">
+      <label>Telephone number</label><input formControlName="telephone">
+    </div>
+    <div class="row" [ngClass]="{'error': feedbackForm.get('message').touched && feedbackForm.get('message').invalid}">
+      <label>Message</label><input formControlName="message">
+
+    </div>
+
+    <button [disabled]="!feedbackForm.valid">Send</button>
+    <span class="cancel" (click)="hideFeedbackForm()">Cancel</span>
+  </form>
+</div>
